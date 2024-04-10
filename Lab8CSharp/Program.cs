@@ -50,8 +50,61 @@ namespace Lab8CSharp
             //}
 
 
-            Console.WriteLine("Task 3 ");
+            //Console.WriteLine("Task 3 ");
+            //string str1 = "", str2 = "";
+            //string[] words1, words2;
+            //using (FileStream fs = new FileStream("task3Read1.txt", FileMode.Open))
+            //{
+            //    using (StreamReader sr = new StreamReader(fs))
+            //    {
+            //        str1 = sr.ReadToEnd();
+            //    }
+            //}
+            //using (FileStream fs = new FileStream("task3Read2.txt", FileMode.Open))
+            //{
+            //    using (StreamReader sr = new StreamReader(fs))
+            //    {
+            //        str2 = sr.ReadToEnd();
+            //    }
+            //}
+            //words1 = Regex.Split(str2, @"[\p{P}\s\t]");
+            //foreach (string word in words1)
+            //{
+            //    str1 = Regex.Replace(str1, @"[\p{P}\s\t]{1}" + word + @"[\p{P}\s\t]{1}", " ");
+            //}
+            //using (FileStream fs = new FileStream("task3Write.txt", FileMode.OpenOrCreate))
+            //{
+            //    using (StreamWriter sw = new StreamWriter(fs))
+            //    {
+            //        sw.Write(str1);
+            //    }
+            //}
 
+
+
+            Console.WriteLine("Task 4 ");
+            int n = 0;
+            int[] nums;
+
+            string[] ns = Console.ReadLine().Split();
+            n = ns.Length;
+            nums = new int[n];
+            int i = 0;
+            foreach (string s in ns)
+            {
+                nums[i] = int.Parse(s);
+                i++;
+            }
+            using (FileStream fs = new FileStream("task4Write.bin", FileMode.OpenOrCreate))
+            {
+                using (BinaryWriter bw = new BinaryWriter(fs))
+                {
+                    foreach (int num in nums)
+                    {
+                      bw.Write(num + " ");
+                    }
+                }
+            }
         }
     }
 }
